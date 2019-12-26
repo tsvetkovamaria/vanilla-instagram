@@ -1,4 +1,9 @@
-'use strict'
+// 'use strict'
+
+const registrationForm = document.getElementById("registration-form");
+const containerElement = document.getElementsByClassName('posts-container')[0];
+const splashScreen = document.getElementById("page-splash");
+const baseUrl = 'http://localhost:8080/';
 
 function createPostElement(text, imageUrl, isLiked) {
 
@@ -42,15 +47,40 @@ function createPostElement(text, imageUrl, isLiked) {
   return postElement;
 }
 
+function hideSlashScreen() {
+  splashScreen.style.display = 'none';
+  document.body.classList.remove('no-scroll');
+}
+
+function showSlashScreen() {
+  splashScreen.removeAttribute('style');
+  document.body.classList.add('no-scroll');
+}
+
+function clearRegistrationForm() {
+  registrationForm.reset();
+}
+
+async function loginUser(userFormData) {
+  const response = await fetch(baseUrl + 'users', {method: "POST"});
+  console.log(response);
+  return response;
+}
 
 // Bindings on load.
 window.addEventListener('load', function() {
-  var containerElement = document.getElementsByClassName('posts-container')[0];
   const post = {
     text: "lorem ipsum",
     image: "http://placekitten.com/g/300/200",
     isLiked: true
   }
+  registrationForm.addEventListener("submit", function (event) {
+    event.preventDefault();
+    // event.stopPropagation()
+    const formData = new FormData(event.target);
+    loginUser(formData);
+    clearRegistrationForm()
+  })
   containerElement.insertBefore(
         createPostElement(post.text, post.image, post.isLiked),
         containerElement.firstChild);

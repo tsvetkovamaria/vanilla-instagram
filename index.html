@@ -3,11 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <title>Document</title>
 </head>
-<body>
+<body class="no-scroll">
   <div class="container">
     <div class="row justify-content-center">
       <div class="col col-lg-7 posts-container">
@@ -68,6 +69,49 @@
       </div>
     </div>
   </div>
+  <!-- Splash screen -->
+  <section id="page-splash" class="page-splash">
+    <form class="card" id="registration-form">
+      <div class="card-body">
+        <h3 class="h3">Register, please</h3>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Имя пользователя</label>
+          </div>
+          <input name="accountName" type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Email</label>
+          </div>
+          <input name="email" type="email" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Ваше имя</label>
+          </div>
+          <input name="fullName" type="text" class="form-control">
+        </div>
+        <div class="input-group mb-3">
+          <div class="input-group-prepend">
+            <label class="input-group-text">Пароль</label>
+          </div>
+          <input name="password" type="password" minlength="8" class="form-control">
+        </div>
+        <button id="sign-in-button" class="btn btn-primary">Зарегистрироваться</button>
+      </div>
+    </form>
+  </section>
   <script src="js/main.js"></script>
+  <script>
+    'use strict'
+
+    let arr = [1, 2, 3];
+    let result = "";
+    for (let i=0, len=arr.length|0; i<len; i=i+1|0) {
+      console.log(i, len);
+      result += "\n  " + arr[i];
+    }
+  </script>
 </body>
 </html>
